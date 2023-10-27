@@ -20,7 +20,7 @@ public:
         using pointer_type = T *;
         using reference_type = T &;
 
-        Iterator() = default;
+        Iterator() : m_ptr(nullptr) {};
 
         explicit Iterator(pointer_type ptr) : m_ptr(ptr) {}
 
