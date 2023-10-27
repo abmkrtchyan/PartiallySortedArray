@@ -58,19 +58,19 @@ public:
             return m_ptr - right.m_ptr;
         }
 
-        friend bool operator==(const Iterator &a, const Iterator &b) {
-            return a.m_ptr == b.m_ptr;
+        bool operator==(const Iterator &b) {
+            return this->m_ptr == b.m_ptr;
         };
 
-        friend bool operator!=(const Iterator &a, const Iterator &b) {
-            return a.m_ptr != b.m_ptr;
+        bool operator!=(const Iterator &b) {
+            return this->m_ptr != b.m_ptr;
         };
 
     private:
         pointer_type m_ptr;
     };
 
-    explicit PartiallySortedArray() : size(0), capacity(0) {
+    explicit PartiallySortedArray() : size(0), capacity(0), arr(new T(0)) {
         this->firstPositive = Iterator(arr);
         this->firstZero = Iterator(arr);
         this->last = Iterator(arr);
